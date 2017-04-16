@@ -10,17 +10,10 @@ Examples (no noise)
 -------
 Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding 
 
-.. code-block:: python
-
-	import numpy as np, shuffled_stats
-
-	#
-	x = np.random.normal() 
-
-
 ```python
 s = "Python syntax highlighting"
 print s
+>>> d
 ```
 
 Clearly, the pattern here is that 
