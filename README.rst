@@ -17,6 +17,8 @@ Let's start with some simple examples. Let's construct some 2-dimensional input 
 	#
 	x = np.random.normal() 
 
+	>>> 1
+
 
 ```python
 s = "Python syntax highlighting"
