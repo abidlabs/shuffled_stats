@@ -8,21 +8,21 @@ Applications include: experiments done on an entire population of particles at o
 
 Examples (no noise)
 -------
-Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding 
+Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding labels.
 
 .. code-block:: python
 
 	import numpy as np, shuffled_stats
 
 	x = np.random.normal(1, 1, (100,2))
-	y = x[:,0]*3 - 7*x[:,1]
+	y = 3*x[:,0] - 7*x[:,1]
 
 	np.shuffle(y) #in-place shuffling of the labels
 
 	shuffled_stats.linregress(x,y) #performs shuffled linear regression
 	>>> array([3., -7.])
 
-	#weights are exactly recovered
+
+The weights, [3, -7], were recovered exactly.
 
 
-Clearly, the pattern here is that 
