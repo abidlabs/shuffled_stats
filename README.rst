@@ -10,12 +10,17 @@ Examples (without noise)
 -------
 Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding labels.
 
+.. code-block:: 
+
+	pip install shuffled_stats
+
+
 .. code-block:: python
 
 	import numpy as np, shuffled_stats
 
-	x = np.random.normal(1, 1, (100,2))
-	y = 3*x[:,0] - 7*x[:,1]
+	x = np.random.normal(1, 1, (100,2)) #input features
+	y = 3*x[:,0] - 7*x[:,1] #labels
 
 	np.shuffle(y) #in-place shuffling of the labels
 
@@ -23,7 +28,7 @@ Let's start with some simple examples. Let's construct some 2-dimensional input 
 	>>> array([3., -7.])
 
 
-The weights, [3, -7], were recovered exactly.
+The weights, [3, -7], were recovered exactly. 
 
 
 .. code-block:: python
