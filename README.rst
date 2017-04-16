@@ -99,7 +99,7 @@ The weights are approximately recovered. We can quantify the relative error by u
 	shuffled_stats.error_in_weights(w0,w)
 	>>> 0.13010948373615697	#13% error
 
-Can we improve performance by running three separate "trials" of this experiment, each consisting of 100 unordered labels (within each trial, the ordering of the labels is unknown, but labels within a trial must correspond to data points from that trial)? We can test this easily with our library:
+Can we improve performance by running three separate "trials" or "replications" of this experiment, each consisting of 100 unordered labels (within each trial, the ordering of the labels is unknown, but labels within a trial must correspond to data points from that trial)? We can test this easily with our library:
 
 .. code-block:: python
 	
@@ -114,8 +114,42 @@ Can we improve performance by running three separate "trials" of this experiment
 
 The weights are a lot closer this time!
 
-You can also choose different estimators to compare results:
-	
-	#the true weights are [1,1]
-	x, y, w0, groups = shuffled_stats.generate_dataset(n=1000, dim=2, weights=[1,1], noise=0.5, mean=1)
+The library includes several different estimators (see paper for details). We can choose different estimators to compare results:
 
+.. code-block:: python
+	
+	np.random.seed(1) #for reproducibility
+	x, y, w0 = shuffled_stats.generate_dataset(n=100, dim=3, weights=[1,1,1], noise=0.3, mean=1) #the true weights are [1,1]
+	w = shuffled_stats.linregress(x,y, estimator='SM')
+	print(np.round(w,2))
+	>>> [0.98  0.98  1.03]
+	w = shuffled_stats.linregress(x,y, estimator='LS')
+	print(np.round(w,2))
+	>>> [0.99  0.92  1.09]
+	w = shuffled_stats.linregress(x,y, estimator='EMD')
+	print(np.round(w,2))
+	>>> [0.99  0.93  1.09]
+
+
+Examples (on datasets)
+---------------------------------
+
+Finally, we include methods to load datasets from .csv files (:code:`shuffled_stats.load_dataset_in_clusters`) so that the performance of shuffled regression can be compared to that of, for example, ordinary least-squares. Here's an example that uses the :code:`accidents.csv` dataset, which can be downloaded from this GitHub repository.
+
+.. code-block:: python
+	
+	from sklearn.linear_model import LinearRegression
+	
+	np.random.seed(1) #for reproducibility
+
+	x, y, groups = shuffled_stats.load_dataset_in_clusters('accidents.csv', normalize=True, n_clusters = 2)
+
+	lr = LinearRegression(fit_intercept=False) #fit_intercept is false because x already includes a bias column
+	
+	print(lr.fit(x,y).coef_)
+	>>> [1.02859104,  0.03967381]
+
+	print(shuffled_stats.linregress(x,y))
+	>>> [ 1.12348216  0.02539006]
+
+Feel free to explore shuffled regression and reach out to me if you have any questions!
