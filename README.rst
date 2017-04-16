@@ -134,7 +134,7 @@ The library includes several different estimators (see paper for details). We ca
 Examples (on datasets)
 ---------------------------------
 
-Finally, we include methods to load datasets from .csv files (:code:`shuffled_stats.load_dataset_in_clusters`) so that the performance of shuffled regression can be compared to that of, for example, ordinary least-squares. Here's an example that uses the :code:`accidents.csv` dataset, which can be downloaded from this GitHub repository.
+Finally, we include methods to load datasets from .csv files (:code:`shuffled_stats.load_dataset_in_clusters`) so that the performance of shuffled regression can be compared to that of, for example, ordinary least-squares, on real-world data. Here's an example that uses the :code:`accidents.csv` dataset, from the UCI repository.
 
 .. code-block:: python
 	
