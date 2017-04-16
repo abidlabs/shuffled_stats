@@ -152,4 +152,4 @@ Finally, we include methods to load datasets from .csv files (:code:`shuffled_st
 	print(shuffled_stats.linregress(x,y))
 	>>> [ 1.12348216  0.02539006]
 
-Feel free to explore shuffled regression and reach out to me if you have any questions!
+Not bad, if I do say so myself! Feel free to explore shuffled regression and reach out to me if you have any questions!
