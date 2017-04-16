@@ -45,7 +45,7 @@ x1      x2    y
 2      10      12
 =====  =====  =======
 
-Linear regression would clearly reveal that x1 + x2 = y. Let's see what shuffled linear regression reveals with a permuted version of the labels:
+Linear regression would clearly reveal that 1*x1 + 1*x2 = y. Let's see what shuffled linear regression reveals with a permuted version of the labels:
 
 .. code-block:: python
 
@@ -58,7 +58,24 @@ Linear regression would clearly reveal that x1 + x2 = y. Let's see what shuffled
 	>>> array([1., 1.])
 
 
+Again, the weights are recovered exactly.
 
 Examples (with noise)
 ------------------------
-d
+
+.. code-block:: python
+	
+	np.random.seed(1) #for reproducibility
+	x = np.random.normal(1, 1, (100,3)) #input features
+	x[:,0] = 1 #making a bias/intercept column 
+	y = 4 + 2*x[:,1] - 3*x[:,2] #labels
+
+	y = y + np.random.normal(0, .3, (100)) #adding Gaussian noise
+
+	w = shuffled_stats.linregress(x,y)
+	np.round(w,2)
+	>>> array([3.80, 2.09, -2.91])
+
+We see that the recovered weights are close to the original weights (4, 2, -3), including the bias term.
+
+
