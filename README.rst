@@ -4,7 +4,7 @@ A python library for performing inference on datasets with shuffled / unordered 
 
 This library includes functions for generating datasets and performing linear regression on datasets whose labels (the "y") are shuffled with respect to the input features (the "x"). In other words, you should use this library to perform linear regression when you don't know which measurement comes from which data point.
 
-Applications include: experiments done on an entire population of particles at once (`flow cytometry <https://en.wikipedia.org/wiki/Flow_cytometry>`_), datasets shuffled to protect privacy (`medical records <https://experts.illinois.edu/en/publications/protection-of-health-information-in-data-mining>`_), measurements where the ordering is unclear (`signaling with identical tokens <hhttp://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6620545>`_)
+Applications include: experiments done on an entire population of particles at once (`flow cytometry <https://en.wikipedia.org/wiki/Flow_cytometry>`_), datasets shuffled to protect privacy (`medical records <https://experts.illinois.edu/en/publications/protection-of-health-information-in-data-mining>`_), measurements where the ordering is unclear (`signaling with identical tokens <http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6620545>`_)
 
 Installation
 --------------------
