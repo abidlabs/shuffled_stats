@@ -8,10 +8,11 @@ Applications include: experiments done on an entire population of particles at o
 
 Examples (no noise)
 -------
-Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding labels::
+Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding .. code-block:: python
 
 	import numpy as np, shuffled_stats
 
-	
+	#
+	x = np.random.normal() 
 
 Clearly, the pattern here is that 
