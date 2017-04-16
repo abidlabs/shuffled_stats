@@ -8,7 +8,7 @@ Applications include: experiments done on an entire population of particles at o
 
 Examples (no noise)
 -------
-Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding .. code-block:: python
+Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding labels::
 
 	import numpy as np, shuffled_stats
 
