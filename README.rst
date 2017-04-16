@@ -16,7 +16,7 @@ Installation
 
 Examples (without noise)
 -------------------------------
-Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding labels.
+Let's start with some simple examples. We construct some random 2-dimensional input data, and the corresponding labels. We then apply shuffled regression using the :code:`shuffled_stats.linregress` function.
 
 .. code-block:: python
 
@@ -31,7 +31,7 @@ Let's start with some simple examples. Let's construct some 2-dimensional input 
 	>>> array([3., -7.])
 
 
-The weights, [3, -7], were recovered exactly. 
+The original weights, [3, -7], are recovered exactly. 
 
 We can do another example with defined data points:
 
@@ -76,6 +76,6 @@ Examples (with noise)
 	np.round(w,2)
 	>>> array([3.80, 2.09, -2.91])
 
-We see that the recovered weights are close to the original weights (4, 2, -3), including the bias term.
+We see that the recovered weights approximate the original weights (4, 2, -3), including the bias term.
 
-
+The library includes a function  for quickly generating dataset
