@@ -15,4 +15,10 @@ Let's start with some simple examples. Let's construct some 2-dimensional input 
 	#
 	x = np.random.normal() 
 
+
+```python
+s = "Python syntax highlighting"
+print s
+```
+
 Clearly, the pattern here is that 
