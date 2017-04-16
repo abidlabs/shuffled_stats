@@ -7,7 +7,7 @@ setup(
     author = 'Abubakar Abid',
     author_email = 'a12d@stanford.edu',
     url = 'https://github.com/abidlabs/shuffled-stats', 
-    download_url = 'https://github.com/abidlabs/shuffled-stats/archive/1.0.0.tar.gz',
+    download_url = 'https://github.com/abidlabs/shuffled-stats/archive/1.0.2.tar.gz',
     py_modules=['shuffled-stats'],
     keywords = ['statistics', 'shuffled', 'permutation','regression'],
     install_requires=[
