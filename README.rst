@@ -6,14 +6,17 @@ This library includes functions for generating datasets and performing linear re
 
 Applications include: experiments done on an entire population of particles at once (flow cytometry), datasets shuffled to protect privacy (medical records), measurements where the ordering is unclear (signaling with identical tokens)
 
-Examples (without noise)
--------
-Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding labels.
+Installation
+--------------------
 
 .. code-block:: 
 
-	pip install shuffled_stats
+	$ pip install shuffled_stats
 
+
+Examples (without noise)
+-------
+Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding labels.
 
 .. code-block:: python
 
