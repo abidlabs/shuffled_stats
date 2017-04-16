@@ -105,3 +105,9 @@ The weights are approximately recovered. Can we improve performance by running t
 
 The weights are a lot closer this time!
 
+You can also choose different estimators to compare results:
+	
+	#the true weights are [1,1]
+	x, y, w0, groups = shuffled_stats.generate_dataset(n=1000, dim=2, weights=[1,1], noise=0.5, mean=1)
+
+	
