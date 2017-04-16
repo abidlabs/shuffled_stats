@@ -78,4 +78,30 @@ Examples (with noise)
 
 We see that the recovered weights approximate the original weights (4, 2, -3), including the bias term.
 
-The library includes a function  for quickly generating dataset
+The library includes a function, :code:`shuffled_stats.generate_dataset`  to quickly generating datasets for testing. Here's an example:
+
+.. code-block:: python
+	
+	np.random.seed(1) #for reproducibility
+
+	x, y, w0 = shuffled_stats.generate_dataset(n=100, dim=3, bias=True, noise=0.3, mean=2)
+	w = shuffled_stats.linregress(x,y)
+
+	print(np.round(w0,2))
+	>>> array([2.07, -1.47, -0.83])	
+	print(np.round(w,2))
+	>>> array([1.79, 1.55, -0.63])
+
+The weights are approximately recovered. Can we improve performance by running three separate "trials" of this experiment, each consisting of 100 unordered labels (within each trial, the ordering of the labels is unknown, but labels within a trial must correspond to data points from that trial)? We can test this easily with our library:
+
+.. code-block:: python
+	
+	#fix weights to the same values as before
+	x, y, w0, groups = shuffled_stats.generate_dataset(n=300, dim=3, weights=[2.07, -1.47, -0.83], bias=True, noise=0.3, mean=2, n_groups=3)
+	w = shuffled_stats.linregress(x,y, groups=groups)
+
+	print(np.round(w,2))
+	>>> array([2.09, -1.49, -0.82])
+
+The weights are a lot closer this time!
+
