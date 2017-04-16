@@ -6,7 +6,7 @@ This library includes functions for generating datasets and performing linear re
 
 Applications include: experiments done on an entire population of particles at once (flow cytometry), datasets shuffled to protect privacy (medical records), measurements where the ordering is unclear (signaling with identical tokens)
 
-Examples (no noise)
+Examples (without noise)
 -------
 Let's start with some simple examples. Let's construct some 2-dimensional input data, and corresponding labels.
 
@@ -26,3 +26,18 @@ Let's start with some simple examples. Let's construct some 2-dimensional input 
 The weights, [3, -7], were recovered exactly.
 
 
+.. code-block:: python
+
+	import numpy as np, shuffled_stats
+
+	x = np.random.normal(1, 1, (100,2))
+	y = 3*x[:,0] - 7*x[:,1]
+
+	np.shuffle(y) #in-place shuffling of the labels
+
+	shuffled_stats.linregress(x,y) #performs shuffled linear regression
+	>>> array([3., -7.])
+
+
+Examples (with noise)
+-------
