@@ -92,16 +92,25 @@ The library includes a function, :code:`shuffled_stats.generate_dataset`  to qui
 	print(np.round(w,2))
 	>>> array([1.79, 1.55, -0.63])
 
-The weights are approximately recovered. Can we improve performance by running three separate "trials" of this experiment, each consisting of 100 unordered labels (within each trial, the ordering of the labels is unknown, but labels within a trial must correspond to data points from that trial)? We can test this easily with our library:
+The weights are approximately recovered. We can quantify the relative error by using :code:`shuffled_stats.error_in_weights`.
 
 .. code-block:: python
 	
-	#fix weights to the same values as before
-	x, y, w0, groups = shuffled_stats.generate_dataset(n=300, dim=3, weights=[2.07, -1.47, -0.83], bias=True, noise=0.3, mean=2, n_groups=3)
+	shuffled_stats.error_in_weights(w0,w)
+	>>> 0.13010948373615697	#13% error
+
+Can we improve performance by running three separate "trials" of this experiment, each consisting of 100 unordered labels (within each trial, the ordering of the labels is unknown, but labels within a trial must correspond to data points from that trial)? We can test this easily with our library:
+
+.. code-block:: python
+	
+	np.random.seed(1) #for reproducibility
+	x, y, w0, groups = shuffled_stats.generate_dataset(n=300, dim=3, weights=[2.07, -1.47, -0.83], bias=True, noise=0.3, mean=2, n_groups=3) #fix weights to the same values as before
 	w = shuffled_stats.linregress(x,y, groups=groups)
 
 	print(np.round(w,2))
-	>>> array([2.09, -1.49, -0.82])
+	>>> array([2.09, -1.48, -0.83])
+	shuffled_stats.error_in_weights(w0,w)
+	>>> 0.0099665304764283077 #<1% error
 
 The weights are a lot closer this time!
 
@@ -110,4 +119,3 @@ You can also choose different estimators to compare results:
 	#the true weights are [1,1]
 	x, y, w0, groups = shuffled_stats.generate_dataset(n=1000, dim=2, weights=[1,1], noise=0.5, mean=1)
 
-	
