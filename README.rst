@@ -22,6 +22,8 @@ Let's start with some simple examples. We construct some random 2-dimensional in
 
 	import numpy as np, shuffled_stats
 
+	np.random.seed(1)
+
 	x = np.random.normal(1, 1, (100,2)) #input features
 	y = 3*x[:,0] - 7*x[:,1] #labels
 
@@ -48,8 +50,6 @@ x1      x2    y
 Standard linear regression would clearly reveal that 1*x1 + 1*x2 = y. Let's see what shuffled linear regression reveals with a permuted version of the labels:
 
 .. code-block:: python
-
-	import numpy as np, shuffled_stats
 
 	x = np.array([[1,2],[2,5],[-1, -2],[5,5],[2,10]])
 	y = np.array([-3, 10, 7, 3, 12])
