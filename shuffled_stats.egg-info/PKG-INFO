@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: shuffled-stats
-Version: 1.0.3
+Version: 1.0.5
 Summary: Python library for performing inference on datasets with shuffled labels
 Home-page: https://github.com/abidlabs/shuffled-stats
 Author: Abubakar Abid

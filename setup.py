@@ -5,7 +5,7 @@ except ImportError:
 
 setup(
     name = 'shuffled_stats',
-    version = '1.0.3',
+    version = '1.0.5',
     description = 'Python library for performing inference on datasets with shuffled labels',
     author = 'Abubakar Abid',
     author_email = 'a12d@stanford.edu',

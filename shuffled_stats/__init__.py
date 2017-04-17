@@ -277,8 +277,6 @@ def solve_quadratic(a,b,c,flag_complex=False):
     c = float(c) + 0j;
     if (abs(a) < THRESH): #to avoid divide-by-zero errors
         a = THRESH
-    if ((b * b) - 4 * a * c)<0 and flag_complex==True:
-        print("**Warning: Complex weights..")
     discRoot = sqrt((b * b) - 4 * a * c) # first pass
     root1 = (-b + discRoot) / (2 * a) # solving positive
     root2 = (-b - discRoot) / (2 * a) # solving negative
