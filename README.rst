@@ -25,7 +25,7 @@ Let's start with some simple examples. We construct some random 2-dimensional in
 	x = np.random.normal(1, 1, (100,2)) #input features
 	y = 3*x[:,0] - 7*x[:,1] #labels
 
-	np.shuffle(y) #in-place shuffling of the labels
+	np.random.shuffle(y) #in-place shuffling of the labels
 
 	shuffled_stats.linregress(x,y) #performs shuffled linear regression
 	>>> array([3., -7.])

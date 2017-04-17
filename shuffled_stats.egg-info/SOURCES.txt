@@ -1,0 +1,8 @@
+README.rst
+setup.py
+shuffled_stats/__init__.py
+shuffled_stats.egg-info/PKG-INFO
+shuffled_stats.egg-info/SOURCES.txt
+shuffled_stats.egg-info/dependency_links.txt
+shuffled_stats.egg-info/requires.txt
+shuffled_stats.egg-info/top_level.txt
