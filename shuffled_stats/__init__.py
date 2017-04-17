@@ -194,7 +194,7 @@ def LS(y, y_, args=None):
     y = np.sort(y)
     y_ = np.sort(y_)
     n = len(y)
-    return 1/n * np.sum(np.square(y_ - y))
+    return 1.0/n * np.sum(np.square(y_ - y))
 
 #TODO: include higher moments
 def SM(y, y_, args=None):
@@ -204,7 +204,7 @@ def SM(y, y_, args=None):
     y1 = y.copy()
     y2 = y_.copy()
     for i in range(1, d+2):
-        cost += 1/math.factorial(i) * np.square(np.mean(y1) - np.mean(y2))
+        cost += 1.0/math.factorial(i) * np.square(np.mean(y1) - np.mean(y2))
         y1 = np.multiply(y,y1)
         y2 = np.multiply(y_,y2)
     return cost
@@ -248,13 +248,13 @@ def get_coefficients(X,y, noise=0):
     THRESH = 1e-6
         
     n = X.shape[0]
-    Ex1 = np.mean(X,axis=0)[0]
-    Ex2 = np.mean(X,axis=0)[1]
-    x12 = X[:,0].dot(X[:,0])/n
-    x22 = X[:,1].dot(X[:,1])/n
-    x1x2 = X[:,0].dot(X[:,1])/n
-    Ey = np.mean(y)
-    y2 = np.mean(np.square(y)) - noise**2
+    Ex1 = float(np.mean(X,axis=0)[0])
+    Ex2 = float(np.mean(X,axis=0)[1])
+    x12 = X[:,0].dot(X[:,0])/float(n)
+    x22 = X[:,1].dot(X[:,1])/float(n)
+    x1x2 = X[:,0].dot(X[:,1])/float(n)
+    Ey = float(np.mean(y))
+    y2 = float(np.mean(np.square(y)) - noise**2)
     
     if (abs(Ex1) < THRESH or abs(Ex2) < THRESH):
         print("Warning: the analytical SM estimator may produce very large or small weights. Please confirm solution with another estimator.")
@@ -272,9 +272,9 @@ def get_coefficients(X,y, noise=0):
 def solve_quadratic(a,b,c,flag_complex=False):
     from cmath import sqrt
     THRESH = 1e-6
-    a = a + 0j;
-    b = b + 0j;
-    c = c + 0j;
+    a = float(a) + 0j;
+    b = float(b) + 0j;
+    c = float(c) + 0j;
     if (abs(a) < THRESH): #to avoid divide-by-zero errors
         a = THRESH
     if ((b * b) - 4 * a * c)<0 and flag_complex==True:
@@ -362,12 +362,12 @@ def EMD(y, y_, args=None):
             pos = x[ix];
             ix += 1; 
             dist += (pos-prev_pos)*abs(cdf_x - cdf_y)
-            cdf_x += 1/(len(x)-1);
+            cdf_x += 1.0/(len(x)-1);
         else:
             pos = y[iy];
             iy += 1; 
             dist += (pos-prev_pos)*abs(cdf_x - cdf_y)
-            cdf_y += 1/(len(y)-1);
+            cdf_y += 1.0/(len(y)-1);
     
     return dist**2
 
@@ -378,7 +378,7 @@ def SMALL_D(y, y_, args=None):
     y = np.sort(y)[:d]
     y_ = np.sort(y_)[:d]
     n = len(y)
-    return 1/n * np.sum(np.square(y_ - y))
+    return 1.0/n * np.sum(np.square(y_ - y))
 
 def KS(y, y_, args=None):
     import math
@@ -403,11 +403,11 @@ def KS(y, y_, args=None):
         if x[ix]<y[iy]:
             pos = x[ix];
             ix += 1; 
-            cdf_x += 1/(len(x)-1);
+            cdf_x += 1.0/(len(x)-1);
         else:
             pos = y[iy];
             iy += 1; 
-            cdf_y += 1/(len(y)-1);
+            cdf_y += 1.0/(len(y)-1);
     
         dist = max(dist, abs(cdf_x - cdf_y))
     return dist**2
