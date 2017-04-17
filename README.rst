@@ -45,7 +45,7 @@ x1      x2    y
 2      10      12
 =====  =====  =======
 
-Linear regression would clearly reveal that 1*x1 + 1*x2 = y. Let's see what shuffled linear regression reveals with a permuted version of the labels:
+Standard linear regression would clearly reveal that 1*x1 + 1*x2 = y. Let's see what shuffled linear regression reveals with a permuted version of the labels:
 
 .. code-block:: python
 
