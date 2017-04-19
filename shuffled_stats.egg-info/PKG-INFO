@@ -1,12 +1,12 @@
 Metadata-Version: 1.1
 Name: shuffled-stats
-Version: 1.0.5
+Version: 1.0.6
 Summary: Python library for performing inference on datasets with shuffled labels
 Home-page: https://github.com/abidlabs/shuffled-stats
 Author: Abubakar Abid
 Author-email: a12d@stanford.edu
 License: UNKNOWN
-Download-URL: https://github.com/abidlabs/shuffled-stats/archive/1.0.3.tar.gz
+Download-URL: https://github.com/abidlabs/shuffled-stats/archive/1.0.5.tar.gz
 Description: UNKNOWN
 Keywords: statistics,shuffled,permutation,regression
 Platform: UNKNOWN
